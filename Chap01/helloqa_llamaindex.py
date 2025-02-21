@@ -1,10 +1,10 @@
 # pip install llama-index
 from llama_index.core import Document, VectorStoreIndex
 
-#import logging
-#import sys
-#logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-#logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
+import logging
+import sys
+logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.getLogger().addHandler(logging.StreamHandler(stream=sys.stdout))
 
 documents = [
     Document(text="Abraham Lincoln was the 16th president of the United States."),

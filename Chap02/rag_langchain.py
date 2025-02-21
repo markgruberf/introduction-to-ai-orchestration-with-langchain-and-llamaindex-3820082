@@ -7,21 +7,22 @@ from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader, Docx2txtLoader
 # pip install torch
 # pip install sentence_transformers
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.embeddings import SentenceTransformerEmbeddings
 from langchain.memory import ConversationBufferMemory
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 # pip install faiss-gpu # For CUDA 7.5+ Supported GPU
 # OR
 # pip install faiss-cpu # For CPU Installation
-from langchain.vectorstores.faiss import FAISS
+from langchain_community.vectorstores import FAISS
 import os
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false" # workaround for HuggingFace/tokenizers
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--docs_dir", type=str, default="./handbook/")
-    parser.add_argument("--persist_dir", type=str, default="handbook_faiss")
+    parser.add_argument("--docs_dir", type=str, default="./Chap02/handbook/")
+    parser.add_argument("--persist_dir", type=str, default="./Chap02/handbook_faiss")
     args = parser.parse_args()
 
     print(f"Using data dir {args.docs_dir}")

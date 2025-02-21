@@ -2,10 +2,13 @@ import os
 from openai import OpenAI # version 1.0+
 # if you get openai errors, run pip install --upgrade openai
 
+
+
 llm = OpenAI(
     # place your OpenAI key in an environment variable
     #api_key=os.environ['OPENAI_API_KEY'], # this is the default
-    #base_url="http://localhost:1234/v1"  # see chapter 1 video 3
+    api_key='aa', 
+    base_url="http://localhost:1234/v1"  # see chapter 1 video 3
 )
 
 system_prompt = """Given the following short description

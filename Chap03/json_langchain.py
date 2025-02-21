@@ -33,14 +33,14 @@ def with_guided_prompt():
 def with_pydantic_output_formatter():
     print("2. Pydantic OutputParser")
     from langchain.output_parsers import PydanticOutputParser
-    from langchain.pydantic_v1 import BaseModel, Field
+    from pydantic import BaseModel, Field
 
     class WeatherReport(BaseModel):
         city: str = Field(description="City name")
         report: str = Field(description="Brief weather report")
 
     parser = PydanticOutputParser(pydantic_object=WeatherReport)
-    #print(f"Parser instructions: {parser.get_format_instructions()}")
+    print(f"Parser instructions: {parser.get_format_instructions()}")
 
     runnable_prompt = ChatPromptTemplate.from_messages(
         [

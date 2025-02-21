@@ -16,9 +16,9 @@ llm = OpenAILike(
     model="gpt-4-1106-preview"  # 128K context window
 )
 
-documents = SimpleDirectoryReader("handbook").load_data()
+documents = SimpleDirectoryReader("./Chap02/handbook/").load_data()
 
-fulltext = "\n\n".join([d.get_text() for d in documents])
+fulltext = "\n\n".join([d.text for d in documents])
 textlen = len(fulltext)
 print(f"Document text size is {textlen}")
 if textlen > 100000:

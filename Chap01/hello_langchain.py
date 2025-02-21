@@ -3,6 +3,10 @@ from langchain_openai.chat_models import ChatOpenAI
 from langchain.prompts import PromptTemplate
 from langchain.schema.output_parser import StrOutputParser
 
+from langchain.globals import set_debug, set_verbose
+set_debug(True)
+set_verbose(True)
+
 application_prompt = """Given the following short description
     of a particular topic, write 3 attention-grabbing headlines 
     for a blog post. Reply with only the titles, one on each line,
@@ -23,6 +27,8 @@ prompt = PromptTemplate(
     input_variables=["user_input"],
     template=application_prompt
 )
+print(prompt.output_schema)
+print(llm.input_schema)
 chain = prompt | llm | StrOutputParser()
 result = chain.invoke({"user_input": user_input})
 

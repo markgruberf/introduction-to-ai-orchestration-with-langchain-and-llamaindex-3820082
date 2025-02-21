@@ -21,8 +21,8 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false" # workaround for HuggingFace Fast
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--docs_dir", type=str, default="./handbook/", help="Directory containing documents to index")
-    parser.add_argument("--persist_dir", type=str, default="./handbook_index/", help="Path to store the serialized VectorStore")
+    parser.add_argument("--docs_dir", type=str, default="./Chap02/handbook/", help="Directory containing documents to index")
+    parser.add_argument("--persist_dir", type=str, default="./Chap02/handbook_index/", help="Path to store the serialized VectorStore")
     args = parser.parse_args()
 
     print(f"Using data dir {args.docs_dir}")
